@@ -177,24 +177,24 @@ while True:
     # check events
     for event in pg.event.get():
         if event.type == pg.QUIT: # quit game if window is closed
-            #print("exit")
             quit()
         elif event.type == pg.MOUSEBUTTONDOWN: # check for mousebutton events
+
             if event.button == 4: # check for scrolling down // zooming out
-                #print("wheeldown") 
+
                 if(cell_width < cell_width_max and cell_height < cell_height_max): # check if cells are not too big
                     # adjust cell size
                     cell_width+= 1
                     cell_height+= 1
             elif event.button == 5: # check for scrolling up // zooming in
-                #print("wheelup")
+                
                 if(cell_width > cell_width_min and cell_height > cell_height_min): # check if cells are not too small
                     # adjust cell size
                     cell_width-= 1
                     cell_height-= 1
-                    #print("-- " + str(cell_width) + " - " + str(cell_height))
+                    
             elif event.button == 3: # check for right-click
-                print('right')
+                
                 # check for mouse position
                 pos = pg.mouse.get_pos()
 
@@ -206,14 +206,13 @@ while True:
                     navigating = True
 
             elif event.button == 1: # check for left-click 
-                print("left")
+               
                 # check for mouse position
                 pos = pg.mouse.get_pos()
 
                 # check if mouse is in grid area
                 if(pos[0] < grid_width and pos[0] > grid_x and pos[1] < grid_height and pos[1] > grid_y):
-                    print('GRID')
-
+                   
                     # check if the generation counter is at 1 -> user should only give birth to new cells and kill living cells if the generation is at 1
                     if generation_counter == 1:
                         
@@ -223,14 +222,10 @@ while True:
                         x = int(pos[0] / cell_width) - offset_x
                         y = int(pos[1] / cell_height) - offset_y
 
-                        print(str(x) + ' - ' + str(y))
-
                         # check if there is a cell at this position
                         if (x,y) in world:
-                            print('kill')
                             world.remove((x,y))
                         else:
-                            print('birth')
                             world.append((x,y))
 
                 # check if mouse is in command field area
@@ -240,7 +235,7 @@ while True:
                         if (pos[0] >= but[0] and pos[0] <= but[1] and pos[1] >= but[2] and pos[1] <= but[3]):
                             # execute button
                             button_text = but[4]
-                            #print (button_text)
+                            
                             if button_text == PAUSE:
                                 paused = not paused
                             elif button_text == CONTINUE:
@@ -270,13 +265,12 @@ while True:
                 # ignore movement, if it is not allowed yet
                 movement = pg.mouse.get_rel()
                 if not ignoreMovement:
-                    #print (pg.mouse.get_rel())
                     offset_x = offset_x + movement[0]
                     offset_y = offset_y + movement[1]
-                    #print('current offset in x: ' + str(offset_x) + ' + ' + str(movement[0]) + 'current offset in y: ' + str(offset_y) + ' + ' + str(movement[1]))
+                    
                 else:
                     # as the movement has been ignored, the program should no longer ignore it
-                    #print('IGNORED MOVEMENT')
+               
                     ignoreMovement = not ignoreMovement
 
-    #print('C O in x: ' + str(offset_x) + 'C O in y: ' + str(offset_y))          
+  
