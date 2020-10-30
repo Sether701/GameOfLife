@@ -34,14 +34,6 @@ def next_generation(world):
     # check if a cell will die or be born and return all of them
     return {pos for pos,amnt in neighbors.items() if amnt == 3 or (amnt == 2 and pos in world)}
 
-'''def calculate_cell_size(world, width, height):
-    # calculate cell size based on the size of the current world
-    xValues, yValues = zip(*world)
-    minX, maxX, minY, maxY = min(xValues), max(xValues), min(yValues), max(yValues)
-    columns, rows = maxX-minX + 1, maxY-minY + 1
-    #return  width / columns - 1, height / rows - 1, -minX, -minY
-    return 5,5,0,0'''
-
 def button(screen, text, mouse_position, x, y, width, height, color_normal, color_hover):
 
     # create text 
@@ -153,14 +145,12 @@ while True:
         # check if there are any new living cells
         if all(cell in world for cell in old_world) and len(world) == len(old_world):
             # if there a no new cells, the simulation is static => stop calculation
-            # PROBLEM: cant recognize oscillators
+            # TODO PROBLEM: cant recognize oscillators
             paused = True
 
         # check if there are no living cells anymore
         if not world:
             paused = True
-
-    #cell_width, cell_height, offsetX, offsetY = calculate_cell_size(world, grid_width, grid_height)
 
     # (re)draw grid
     draw_grid(screen, grid_width, grid_height, cell_width, cell_height)
@@ -217,8 +207,6 @@ while True:
                     if generation_counter == 1:
                         
                         # calculate possible cell position based on mouse position
-                        #x = (pos[0] - pos[0] % cell_width) / cell_width
-                        #y = (pos[1] - pos[1] % cell_height) / cell_height
                         x = int(pos[0] / cell_width) - offset_x
                         y = int(pos[1] / cell_height) - offset_y
 
