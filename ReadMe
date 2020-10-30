@@ -1,0 +1,59 @@
+
+Deutsche Erklärung / German Explanation:
+Kurze Erklärung zur Anwendung:
+
+Das Spiel heißt game of life und wurde von dem britischen Mathematiker John Conway entwickelt.
+Dies hier ist eine kleine Umsetzung als Python-Programm
+
+Die Regeln des Spieles sind wie folgt:
+
+Jede "Welt" besteht aus Zellen.
+Diese können zwei Zustände haben: tot oder lebendig
+Jede Zelle hat 8 Nachbarn
+
+Hat eine tote Zelle genau 3 lebendige Nachbarn, wird sie in der nächsten Generation geboren.
+Hat eine lebendige Zelle weniger als 2 lebendige Nachbarn, wird sie in der nächsten Generation wegen Einsamkeit verstorben sein.
+Hat eine lebendige Zelle 2 oder 3 lebendige Nachbarn, bleibt sie in der nächsten Generation erhalten.
+Hat eine lebendige Zelle mehr als 3 lebendige Nachbarn, wird sie in der nächsten Generation wegen Überbevölkerung verstorben sein.
+
+Der Generationenwechsel läuft von selbst ab. Oben rechts wird immer die aktuelle Generation angezeigt.
+Darunter steht die Framerate. Diese stellt die Generationen(/Bilder) pro Sekunde dar.
+Die Simulation stoppt automatisch, sobald keine Zelle mehr stirbt oder geboren wird.
+
+Mit einem Klick auf "Pause" kann das Spiel pausiert werden. Mit "Continue" wird es fortgesetzt.
+Klickt man auf "Clear" wird die Welt geleert und man kann durch einen Linksklick tote Zellen beleben und lebendige Zellen töten.
+Hält man die rechte Maustaste gedrückt, kann man innerhalb der Welt navigieren.
+Mit dem Mausrad kann man hinein- bzw. herauszoomen. 
+
+Verliert man die Orientierung, kann man mit dem Button "Reset Position" die Navigation zurücksetzen.
+
+====================================================================================================================
+
+English Explanation:
+
+Brief explanation of the application:
+
+The game is called game of life and was developed by the British mathematician John Conway.
+This is a small implementation as a Python program
+
+The rules of the game are as follows:
+
+Every "world" consists of cells.
+These can have two states: dead or alive
+Each cell has 8 neighbors
+
+If a dead cell has exactly 3 living neighbors, it will be born in the next generation.
+If a living cell has fewer than 2 living neighbors, it will have died in the next generation due to isolation.
+If a living cell has 2 or 3 living neighbors, it is retained in the next generation.
+If a living cell has more than 3 living neighbors, it will have died in the next generation due to overpopulation.
+
+The generation change happens by itself. The current generation is always displayed at the top right.
+Below is the frame rate. This represents the generations(/frames) per second.
+The simulation stops automatically as soon as no more cells die or are born.
+
+The game can be paused by clicking on "Pause". It is continued with "Continue".
+If you click on "Clear", the world is emptied and you can revive dead cells and kill living cells with a left click.
+If you hold down the right mouse button, you can navigate within the world.
+You can zoom in and out with the mouse wheel.
+
+If you lose your orientation, you can reset the navigation with the "Reset Position" button.
